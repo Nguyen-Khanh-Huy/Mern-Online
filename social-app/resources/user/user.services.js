@@ -18,7 +18,8 @@ export default {
         .email()
         .required(),
       password: Joi.string().required(),
-      role: Joi.number().integer()
+      role: Joi.number().integer(),
+      friends: Joi.array()
     });
     const { value, error } = Joi.validate(body, schema);
     if (error && error.details) {

@@ -7,7 +7,7 @@ const userSchema = new Schema({
     fullName: String,
     email: String,
     password: String,
-    role: Number
+    friends: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 });
 
 export default mongoose.model('User', userSchema);

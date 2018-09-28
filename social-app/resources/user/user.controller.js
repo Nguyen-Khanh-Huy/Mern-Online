@@ -15,7 +15,8 @@ export default {
         userName: value.userName,
         fullName: value.fullName,
         password: encryptPass,
-        role: value.role
+        role: value.role,
+        friends: value.friends
       });
       res.json({ success: true });
     } catch (err) {
