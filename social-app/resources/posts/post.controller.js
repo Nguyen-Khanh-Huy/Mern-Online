@@ -18,8 +18,8 @@ export default {
   async getById(req, res) {
     try {
       const post = await Post.findById(req.params.id)
-        .populate('postBy', 'fullName userName')
-        .populate('likes', 'fullName lastName');
+        .populate('postBy', 'fullName') //userName
+        .populate('likes', 'fullName'); //lastName
       if (!post) {
         return res.status(404).json({ err: 'could not find post' });
       }
