@@ -6,6 +6,9 @@ import registerServiceWorker from './registerServiceWorker';
 // import { Provider } from 'react-redux';
 import App from './components/layout/App';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'jquery/dist/jquery.min';
+import 'bootstrap/dist/js/bootstrap.min';
+import 'popper.js/dist/umd/popper.min';
 
 // const store = createStore(
 //   appReducer,
