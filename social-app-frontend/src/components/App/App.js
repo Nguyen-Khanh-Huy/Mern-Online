@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import routes from '../../routes';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Menu from '../Menu/Menu';
+import Header from '../Header/Header';
 
 class App extends Component {
   showMenu = () => {
@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Menu />
+        <Header />
         <Router>
           <div className="App">
             <Switch>{this.showMenu()}</Switch>
