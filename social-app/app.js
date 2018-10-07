@@ -8,8 +8,10 @@ var indexRouter = require('./routes/index');
 import { restRouter } from './resources';
 import passport from 'passport';
 import { configJWTStrategy } from './middlewares/passport-jwt';
-var app = express();
+import cors from 'cors';
 
+var app = express();
+app.use(cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

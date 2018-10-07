@@ -3,7 +3,7 @@ import { log } from 'core-js';
 
 export default {
   async getAll(req, res) {
-    const posts = await Post.find();
+    const posts = await Post.find().populate('postBy', 'fullName');
     res.json(posts);
   },
   async create(req, res) {
