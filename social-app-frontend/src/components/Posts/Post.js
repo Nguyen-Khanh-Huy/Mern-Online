@@ -7,6 +7,8 @@ class Post extends Component {
     }
     render() {
         //const { content, postBy } = this.props.post;
+        console.log(this.props.post);
+        
         return (
             <article className="content__center__list-post__item mb-4">
                 <div className="row">
@@ -14,7 +16,7 @@ class Post extends Component {
                         <img src="https://via.placeholder.com/100x100" width="100%" alt="" />
                     </div>
                     <div className="col-sm-11">
-                        <span className="content__center__list-post__item__username">{this.props.post.postBy.fullName}</span>
+                        <span className="content__center__list-post__item__username">{this.props.post.postBy.userName}</span>
                         <div>9 giờ trước</div>
                     </div>
                 </div>
