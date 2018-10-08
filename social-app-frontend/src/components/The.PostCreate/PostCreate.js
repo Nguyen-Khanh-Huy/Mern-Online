@@ -15,7 +15,7 @@ class PostCreate extends Component {
     })
     //console.log(this.state.content)
     axios.post('http://localhost:8000/api/posts', { content: this.state.content, postBy: this.state.postBy }).then(res => {
-      //console.log(res.data)
+      console.log(res.data)
     })
   }
   render() {
