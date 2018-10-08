@@ -3,7 +3,7 @@ import Axios from 'axios';
 
 class Post extends Component {
     updatePostLike = () => {
-        Axios.put('', {likes: this.props.post.likes.push('5bac8184ebe8ac2208ba0b3c')});
+        Axios.put('', {likes: this.props.posts.likes.push('5bac8184ebe8ac2208ba0b3c')});
     }
     render() {
         //const { content, postBy } = this.props.post;
@@ -14,18 +14,18 @@ class Post extends Component {
                         <img src="https://via.placeholder.com/100x100" width="100%" alt="" />
                     </div>
                     <div className="col-sm-11">
-                        <span className="content__center__list-post__item__username">{this.props.post.postBy.fullName}</span>
+                        <span className="content__center__list-post__item__username">{this.props.posts.postBy.fullName}</span>
                         <div>9 giờ trước</div>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-sm-12">
-                        {this.props.post.content}
+                        {this.props.posts.content}
                     </div>
                 </div>
                 <div className="row mt-2">
                     <div className="col-12 text-right">
-                        <button className="btn btn-primary">Like</button>
+                        <button className="btn btn-primary">{this.props.posts.likes.length} Like</button>
                         <button className="btn btn-primary">Bình luận</button>
                     </div>
                 </div>

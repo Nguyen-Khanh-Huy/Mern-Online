@@ -17,7 +17,7 @@ class ListPost extends Component {
     }
     renderPost = (listPost) => {
         return listPost.map(post => {
-            return <Post key={post._id} post={post}> </Post> // Props = post (post đầu). post sau = dữ liệu bảng post
+            return <Post key={post._id} posts={post}> </Post> // Props = post (post đầu). post sau = dữ liệu bảng post
         })
     }
     render() {
