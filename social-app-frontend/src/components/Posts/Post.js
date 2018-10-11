@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 
 class Post extends Component {
     updatePostLike = () => {
-        Axios.put('', {likes: this.props.posts.likes.push('5bac8184ebe8ac2208ba0b3c')});
+        axios.put('http://localhost:8000/api/posts', {likes: this.props.posts.likes.push('5bac8184ebe8ac2208ba0b3c')});
     }
     render() {
         //const { content, postBy } = this.props.post;
@@ -25,7 +25,7 @@ class Post extends Component {
                 </div>
                 <div className="row mt-2">
                     <div className="col-12 text-right">
-                        <button className="btn btn-primary">{this.props.posts.likes.length} Like</button>
+                        <button className="btn btn-primary" onClick={ () => this.updatePostLike() }>{this.props.posts.likes.length} Like</button>
                         <button className="btn btn-primary">Bình luận</button>
                     </div>
                 </div>
