@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import routes from '../../routes';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
-import openSocket from 'socket.io-client';
+//import openSocket from 'socket.io-client';
 
 class App extends Component {
-  constructor () {
-    super();
-    const socket = openSocket('http://localhost:8001');
-    socket.emit('sendmess', {data: 'test'})
-  }
+  // constructor () {
+  //   super();
+  //   const socket = openSocket('http://localhost:8001');
+  //   socket.emit('sendmess', {data: 'test'});
+  // }
   showMenu = () => {
     let result = null;
     result = routes.map((item, index) => {
