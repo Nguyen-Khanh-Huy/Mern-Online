@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import openSocket from 'socket.io-client';
 
-
 class AboutPage extends Component {
     constructor() {
         super();
@@ -21,7 +20,6 @@ class AboutPage extends Component {
         //const socket = openSocket('http://localhost:8001');
         //socket.emit('sendmess', { data: 'test' });
     }
-
     chatAll = () => {
         this.socket.emit("client-send-mess", document.getElementById('txtChat').value);
     }
@@ -37,7 +35,7 @@ class AboutPage extends Component {
                 <input type="text" id="txtChat" />
                 <button onClick={() => this.chatAll()}>Click Me</button>
 
-                <ul>
+                <ul className="col-lg-2 col-centered">
                     {this.loadMessage()}
                 </ul>
             </div>
