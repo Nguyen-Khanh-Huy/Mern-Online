@@ -41,8 +41,8 @@ export default {
       if (!authenticated) {
         return res.status(401).json({ err: 'unauthorized' });
       }
-      const token = jwt.issue({ id: user._id }, '1d');              //1 ngày ?
-      return res.json(token);
+      const token = jwt.issue({ id: user._id }, '1d'); //1 ngày ?
+      return res.json({ user, token });
     } catch (err) {
       const token = jwt.issue({ id: user._id }, '1d');
       return res.json({ token });
