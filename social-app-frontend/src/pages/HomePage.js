@@ -5,6 +5,14 @@ import PostCenter from '../components/The.PostCenter/PostCenter';
 import Right from '../components/The.Right/Right';
 
 class HomePage extends Component {
+    constructor(props) {
+        super(props);
+        const token = localStorage.getItem('token');
+        const userStringify = localStorage.getItem('user');
+        const user = JSON.parse(userStringify);
+        console.log(token, user);
+    }
+    
     render() {
         return (
             <div className="content row">

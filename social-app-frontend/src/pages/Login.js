@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import {withRouter} from 'react-router-dom';
 class Login extends Component {
   onLogin = () => {
     const email = document.getElementById('email').value;
@@ -11,6 +11,8 @@ class Login extends Component {
         var userString = JSON.stringify(res.data.user);
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('user', userString);
+        // window.location.href = "/home";
+        this.props.history.push('/home');
       })
       .catch(err => console.log(err));
   };
@@ -27,4 +29,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
