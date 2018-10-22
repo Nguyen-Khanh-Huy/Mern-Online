@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import openSocket from 'socket.io-client';
+import axios from 'axios';
 
 class AboutPage extends Component {
     constructor() {
         super();
+        console.log(JSON.parse(localStorage.getItem('user')));
+        console.log(localStorage.getItem('token'));
         this.socket = openSocket('http://localhost:8001');
         this.state = {
             message: []
         }
         this.socket.on("server-send-mess", (data) => {
-            // console.log("Reply: " + data);
             // this.setState(previousState => ({
             //     message: [...previousState, data]
             // }))
@@ -17,8 +19,11 @@ class AboutPage extends Component {
                 message: this.state.message.concat([data])
             })
         });
-        //const socket = openSocket('http://localhost:8001');
-        //socket.emit('sendmess', { data: 'test' });
+        this.socket.on("server-send-idsocket", (data) => {
+            console.log(data);
+            //axios.put('http://localhost:8000/api/users', {socketid: push(data)});
+            //console.log(data);
+        })
     }
     chatAll = () => {
         this.socket.emit("client-send-mess", document.getElementById('txtChat').value);

@@ -17,4 +17,5 @@ io.on("connection", socket => {
         console.log(socket.id +" Send "+ data);
         io.sockets.emit("server-send-mess", data);
     })
+    socket.emit("server-send-idsocket", socket.id);
 })

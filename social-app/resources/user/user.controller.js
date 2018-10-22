@@ -15,6 +15,7 @@ export default {
         userName: value.userName,
         fullName: value.fullName,
         password: encryptPass,
+        socketid: value.socketid,
         role: value.role,
         friends: value.friends
       });

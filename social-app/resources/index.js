@@ -8,5 +8,5 @@ export const restRouter = express.Router();
 
 restRouter.use('/users', userRouter);
 restRouter.use('/posts', postRouter);
-restRouter.use('/messages', messageRouter); 
+restRouter.use('/messages', messageRouter);
 restRouter.use('/chat', chatRouter);

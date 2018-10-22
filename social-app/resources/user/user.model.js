@@ -7,6 +7,7 @@ const userSchema = new Schema({
     fullName: String,
     email: String,
     password: String,
+    socketid: String,
     friends: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 });
 

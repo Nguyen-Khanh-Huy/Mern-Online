@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import routes from '../../routes';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 //import openSocket from 'socket.io-client';
 

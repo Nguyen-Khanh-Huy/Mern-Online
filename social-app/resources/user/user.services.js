@@ -18,6 +18,7 @@ export default {
         .email()
         .required(),
       password: Joi.string().required(),
+      socketid: Joi.string(),
       role: Joi.number().integer(),
       friends: Joi.array()
     });
