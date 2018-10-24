@@ -5,8 +5,10 @@ import axios from 'axios';
 class AboutPage extends Component {
     constructor() {
         super();
-        console.log(JSON.parse(localStorage.getItem('user')));
-        console.log(localStorage.getItem('token'));
+
+        this.user = JSON.parse(localStorage.getItem('user'));
+        console.log(this.user._id);
+
         this.socket = openSocket('http://localhost:8001');
         this.state = {
             message: []
@@ -21,8 +23,9 @@ class AboutPage extends Component {
         });
         this.socket.on("server-send-idsocket", (data) => {
             console.log(data);
-            //axios.put('http://localhost:8000/api/users', {socketid: push(data)});
+            axios.put('http://localhost:8000/api/users/updateSocket', { id: this.user._id, socketid: data }).then(res => console.log(res));
             //console.log(data);
+            // http://localhost:8000/api/posts
         })
     }
     chatAll = () => {

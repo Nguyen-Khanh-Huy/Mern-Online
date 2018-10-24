@@ -5,6 +5,7 @@ export const userRouter = express.Router();
 
 userRouter.post('/signup', userController.signUp);
 userRouter.post('/login', userController.login);
+userRouter.put('/updateSocket', userController.updateSocket);
 userRouter.get(
     '/me',
     passport.authenticate('jwt', { session: false }),

@@ -25,6 +25,22 @@ export default {
       res.status(500).send(err);
     }
   },
+  async updateSocket(req, res) {
+    try {
+      const { id } = req.body;
+      console.log(id);
+      
+      const user = await User.findOneAndUpdate({ _id: id }, req.body, {
+        new: false
+      });
+      if (!user) {
+        return res.status(404).json({ err: 'could not find user' });
+      }
+      res.json(user);
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  },
   async login(req, res) {
     try {
       const { value, error } = userServices.validateLogin(req.body);

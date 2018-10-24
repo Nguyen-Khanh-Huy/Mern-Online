@@ -2,8 +2,20 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 class Post extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            like: 0
+        }
+    }
     updatePostLike = () => {
-        axios.put('http://localhost:8000/api/posts', {likes: this.props.posts.likes.push('5bac8184ebe8ac2208ba0b3c')});
+        console.log(this.props.posts.likes);
+        var likes = this.props.posts.likes.concat(['5bc763c86d06ec40c832a087']);
+        console.log(likes);
+        
+        axios.put(`http://localhost:8000/api/posts/${this.props.posts._id}`, { likes: likes }).then(res => this.setState({
+            like:  likes.length
+        }));
     }
     render() {
         //const { content, postBy } = this.props.post;
@@ -25,7 +37,7 @@ class Post extends Component {
                 </div>
                 <div className="row mt-2">
                     <div className="col-12 text-right">
-                        <button className="btn btn-primary" onClick={ () => this.updatePostLike() }>{this.props.posts.likes.length} Like</button>
+                        <button className="btn btn-primary" onClick={() => this.updatePostLike()}>{this.state.like} Like</button>
                         <button className="btn btn-primary">Bình luận</button>
                     </div>
                 </div>
