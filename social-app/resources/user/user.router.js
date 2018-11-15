@@ -11,3 +11,17 @@ userRouter.get(
     passport.authenticate('jwt', { session: false }),
     userController.authenticate
 );
+
+
+
+/*
+{
+    "email": "khanhhuy@gmail.com",
+    "userName": "huy",
+    "fullName" : "nguyenkhanhhuy",
+    "password" : "123456",
+    "socketid" : "axiots",
+    "role" : "1",
+    "friends" : []
+}
+*/

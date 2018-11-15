@@ -5,17 +5,24 @@ class Post extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            like: 0
+            like: this.props.posts.likes.length
         }
+        // axios.get(`http://localhost:8000/api/posts/${this.props.posts._id}`, { likes: likes })
+        // .then(res => {
+        //     this.setState({
+        //         like: this.props.posts.likes.length
+        //     })
+        // })
     }
     updatePostLike = () => {
         console.log(this.props.posts.likes);
-        var likes = this.props.posts.likes.concat(['5bc763c86d06ec40c832a087']);
+        var likes = this.props.posts.likes.concat(['5be00a2f75906148b020fec5']);
         console.log(likes);
-        
-        axios.put(`http://localhost:8000/api/posts/${this.props.posts._id}`, { likes: likes }).then(res => this.setState({
-            like:  likes.length
-        }));
+
+        axios.put(`http://localhost:8000/api/posts/${this.props.posts._id}`, { likes: likes })
+            .then(res => this.setState({
+                like: this.state.like + 1
+            }));
     }
     render() {
         //const { content, postBy } = this.props.post;

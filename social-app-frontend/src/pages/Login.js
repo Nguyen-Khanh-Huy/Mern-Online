@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min';
+import 'jquery/dist/jquery.min';
+import './styleLogin.css'; 
+ 
 class Login extends Component {
   onLogin = () => {
     const email = document.getElementById('email').value;
@@ -27,61 +31,65 @@ class Login extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-md-5">
-            <form>
-              <h2>Đăng ký</h2>
-              <div className="form-group">
-                <div className="form-row">
-                  <div className="col">
-                    <label>Họ Tên đầy đủ</label>
-                    <input type="text" className="form-control" placeholder="Tên của bạn" required name="true"/>
+          <div className="col-md-6 col-md-offset-3">
+            <div className="panel panel-login">
+              <div className="panel-heading">
+                <div className="row">
+                  <div className="col-xs-6">
+                    <a href="" className="active" id="login-form-link">Login</a>
+                  </div>
+                  <div className="col-xs-6">
+                    <a href="" id="register-form-link">Sign Up</a>
+                  </div>
+                </div>
+                <hr />
+              </div>
+              <div className="panel-body">
+                <div className="row">
+                  <div className="col-lg-12">
+                    <form id="login-form" method="post" style={{ display: 'block' }}>
+                      <div className="form-group">
+                        <input type="email" tabIndex={1} className="form-control" placeholder="Username" id="email" />
+                      </div>
+                      <div className="form-group">
+                        <input type="password" tabIndex={2} className="form-control" placeholder="Password" id="password" />
+                      </div>
+                      <div className="form-group">
+                        <div className="row">
+                          <div className="col-sm-6 col-sm-offset-3">
+                            <input onClick={() => this.onLogin()} name="login-submit" id="login-submit" tabIndex={4} className="form-control btn btn-login" defaultValue="Log In" />
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                    <form id="register-form" action="https://phpoll.com/register/process" method="post" style={{ display: 'none' }}>
+                      <div className="form-group">
+                        <input type="text" tabIndex={1} className="form-control" placeholder="Username" />
+                      </div>
+                      <div className="form-group">
+                        <input type="email" name="email" tabIndex={1} className="form-control" placeholder="Email Address" />
+                      </div>
+                      <div className="form-group">
+                        <input type="password" tabIndex={2} className="form-control" placeholder="Password" />
+                      </div>
+                      <div className="form-group">
+                        <input type="password" name="confirm-password" id="confirm-password" tabIndex={2} className="form-control" placeholder="Confirm Password" />
+                      </div>
+                      <div className="form-group">
+                        <div className="row">
+                          <div className="col-sm-6 col-sm-offset-3">
+                            <input type="submit" name="register-submit" id="register-submit" tabIndex={4} className="form-control btn btn-register" defaultValue="Register Now" />
+                          </div>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
-              <div className="form-group">
-                <label>Email</label>
-                <input type="email" className="form-control" placeholder="Email của bạn" required name="true"/>
-              </div>
-              <div className="form-group">
-                <label>Mật khẩu</label>
-                <input type="password" className="form-control" placeholder="Password của bạn" required name="true"/>
-              </div>
-              <div className="form-group">
-                <label>Nơi sống</label>
-                <select className="form-control">
-                  <option value>Nơi sống của bạn</option>
-                  <option>TPHCM</option>
-                  <option>Hà Nội</option>
-                  <option>Khác</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label>Giới tính</label>
-                <div className="row" data-toggle="buttons">
-                  <div className="col">
-                    <label className="btn btn-outline-secondary"> Nam
-                <input type="radio" name="gioi-tinh" defaultValue="Nam" />
-                    </label>
-                  </div>
-                  <div className="col">
-                    <label className="btn btn-outline-secondary"> Nữ
-                <input type="radio" name="gioi-tinh" defaultValue="Nữ" />
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div className="form-group">
-                <input type="checkbox" required name="true"/>
-                <label>Tôi đồng ý điều khoản sử dụng</label>
-              </div>
-              <div className="form-group">
-                <button className="btn btn-success" type="submit">Đăng Ký</button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
-
     );
   }
 }

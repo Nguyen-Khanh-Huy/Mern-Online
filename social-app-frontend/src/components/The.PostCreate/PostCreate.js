@@ -7,7 +7,7 @@ class PostCreate extends Component {
     this.state = {
       content: '',
       imageUrl: '',
-      postBy: '5bac8184ebe8ac2208ba0b3c',
+      postBy: '5be009dc75906148b020fec4',
     }
     //this.onChangeContent = this.onChangeContent.bind(this);
   }
