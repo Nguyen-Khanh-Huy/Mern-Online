@@ -1,6 +1,6 @@
 import React from 'react';
 import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
+import ChatPage from './pages/ChatPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Login from './pages/Login';
 
@@ -11,9 +11,9 @@ const routes = [
         main: () => <Login />
     },
     {
-        path: '/about',
+        path: '/chat',
         exact: true,
-        main: () => <AboutPage />
+        main: () => <ChatPage />
     },
     {
         path: '/home',
