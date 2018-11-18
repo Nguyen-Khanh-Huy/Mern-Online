@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Left from '../components/The.Left/Left';
-// import PostCreate from '../components/The.PostCreate/PostCreate';
-import PostCenter from '../components/The.PostCenter/PostCenter';
-import Right from '../components/The.Right/Right';
+import Left from '../components/Posts/Post.Left/Left';
+import Center from '../components/Posts/Post.Center/Center';
+import Right from '../components/Posts/Post.Right/Right';
 
 class HomePage extends Component {
     constructor(props) {
@@ -17,7 +16,7 @@ class HomePage extends Component {
         return (
             <div className="content row">
                 <Left />
-                <PostCenter />
+                <Center />
                 <Right />
             </div>
         );

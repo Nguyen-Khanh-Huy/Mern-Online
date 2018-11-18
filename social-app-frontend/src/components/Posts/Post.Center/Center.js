@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import PostCreate from '../The.PostCreate/PostCreate';
-import ListPost from '../Posts/ListPost';
+import PostCreate from '../Post.Create/Create';
+import ListPost from '../Post.Listpost/ListPost';
 import axios from 'axios';
 
-class PostCenter extends Component {
+class Center extends Component {
   constructor() {
     super();
     this.state = {
@@ -34,4 +34,4 @@ class PostCenter extends Component {
   }
 }
 
-export default PostCenter;
+export default Center;
