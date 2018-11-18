@@ -4,7 +4,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min';
 import 'jquery/dist/jquery.min';
-import './styleAbout.css'; 
+import './styleChat.css'; 
 
 class ChatPage extends Component {
     constructor() {
