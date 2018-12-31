@@ -25,7 +25,7 @@ class ChatPage extends Component {
         });
         this.socket.on("server-send-idsocket", (data) => {
             console.log("SocketID = " + data);
-            axios.put('http://localhost:8000/api/users/updateSocket', { id: this.user._id, socketid: data }).then(res => console.log(res));
+            axios.put('http://localhost:8000/api/users/updateSocket', { id: this.user._id, socketid: data })//.then(res => console.log(res));
             //console.log(data);
             // http://localhost:8000/api/posts
         })

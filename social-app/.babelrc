@@ -6,3 +6,4 @@
         "transform-runtime"
     ]
 }
+// Dùng để biên dịch từ ES6 sang ES5

@@ -4,10 +4,15 @@ import axios from 'axios';
 class PostCreate extends Component {
   constructor() {
     super();
+    // lấy id người đăng bài
+    const userStringify = localStorage.getItem('user');
+    const user = JSON.parse(userStringify);
+    //console.log(user._id);
+
     this.state = {
       content: '',
       imageUrl: '',
-      postBy: '5be009dc75906148b020fec4',
+      postBy: user._id,
     }
     //this.onChangeContent = this.onChangeContent.bind(this);
   }
@@ -19,23 +24,20 @@ class PostCreate extends Component {
     // this.setState({
     //   content: event.target.value
     // })
-  } 
-  newPost = () => {
-    axios.post('http://localhost:8000/api/posts', 
-    { content: this.state.content, imageUrl: this.state.imageUrl, postBy: this.state.postBy }).then(res => {
-      console.log(res.data)
-      this.props.onPostCreate(res.data);
-      this.setState({
-        content: ''
-      })
-      document.getElementById('txtPost').value = '';
-    })
   }
-  render() {
-    //var laytext = document.getElementById('textBox').value;
-    return (
-      <div className="content__center__post-create">
-        <div className="row">
+  newPost = () => {
+    axios.post('http://localhost:8000/api/posts',
+      { content: this.state.content, imageUrl: this.state.imageUrl, postBy: this.state.postBy, someonecomments: "", comments: "" }).then(res => {
+        console.log(res.data)
+        this.props.onPostCreate(res.data);
+        this.setState({
+          content: ''
+        })
+        document.getElementById('txtPost').value = '';
+      })
+  }
+  /*
+  <div className="row">
           <div className="col-sm-1">
             <img src="https://via.placeholder.com/100x100" width="100%" alt="" />
           </div>
@@ -45,8 +47,29 @@ class PostCreate extends Component {
         </div>
         <div className="row mt-2">
           <div className="col-12 text-right">
-            <button className="btn btn-primary" onClick={ () => this.newPost() }>Post</button>
+            <button className="btn btn-primary" onClick={() => this.newPost()}>Post</button>
           </div>
+        </div>
+  */
+  render() {
+    return (
+      <div className="content__center__post-create">
+        <div className="panel rounded shadow">
+          <form action="...">
+            <textarea id="txtPost" onChange={() => this.onChangeContent()} className="form-control input-lg no-border" rows={2} placeholder="What are you doing?..." defaultValue={""} />
+          </form>
+          <div>
+            <button onClick={() => this.newPost()} className="btn btn-success pull-right mt-5">___POST___</button>
+          </div>
+          <div className="panel-footer">
+            <ul className="nav nav-pills">
+              <li><a href=""><i className="fa fa-user" /></a></li>
+              <li><a href=""><i className="fa fa-map-marker" /></a></li>
+              <li><a href=""><i className="fa fa-camera" /></a></li>
+              <li><a href=""><i className="fa fa-smile-o" /></a></li>
+            </ul>
+          </div>
+
         </div>
       </div>
 

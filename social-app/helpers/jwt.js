@@ -1,11 +1,11 @@
-// Hỗ trợ cho toàn server
+// Token
 import jwt from 'jsonwebtoken';
-
-export default {
-  issue(payload, expiresIn) {
-    return jwt.sign(payload, 'huy_le-abs', {
-      expiresIn
-    });
+// jwt cho phép truyền 1 đoạn chuỗi giúp token mỗi người khác nhau
+// jwt = mk + chuỗi + các thuật toán khác
+export default { issue(payload, expiresIn) {
+    return jwt.sign(
+      payload, 'huy_le-abs', { expiresIn }
+      );
   }
 };
 //payload: đăng nhập bằng username thì truyền payload=username (or email)

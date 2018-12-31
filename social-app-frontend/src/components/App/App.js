@@ -13,12 +13,7 @@ class App extends Component {
     let result = null;
     result = routes.map((item, index) => {
       return (
-        <Route
-          key={index}
-          path={item.path}
-          exact={item.exact}
-          component={item.main}
-        /> // index = vtri Array . item = ptu Array
+        <Route key={index} path={item.path} exact={item.exact} component={item.main} /> // index = vtri Array . item = ptu Array
       );
       // https://techmaster.vn/posts/34419/huong-dan-react-router-v4-dieu-huong-cho-ung-dung-react
     });

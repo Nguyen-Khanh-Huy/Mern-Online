@@ -9,7 +9,15 @@ const userSchema = new Schema({
     password: String,
     socketid: String,
     role: Number,
-    friends: [{ type: Schema.Types.ObjectId, ref: 'User' }]
+    friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    numberPhone: Number,
+    home: String,
+    living: String,
+    birthDay: String,
+    sex: String,
+    religion: String,
+    educationLevel: String,
+    statuss: String
 });
 
 export default mongoose.model('User', userSchema);

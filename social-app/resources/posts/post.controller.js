@@ -3,13 +3,13 @@ import { log } from 'core-js';
 
 export default {
   async getAll(req, res) {
-    const posts = await Post.find().populate('postBy', 'fullName');
+    const posts = await Post.find().populate('postBy', 'userName');
     res.json(posts);
   },
   async create(req, res) {
     try {
-      const { content, imageUrl, likes, postBy } = req.body;
-      const post = await Post.create({ content, imageUrl, likes, postBy });
+      const { content, imageUrl, likes, postBy, someonecomments, comments } = req.body;
+      const post = await Post.create({ content, imageUrl, likes, postBy, someonecomments, comments });
       res.json(post);
     } catch (err) {
       res.status(500).send(err);
@@ -18,8 +18,8 @@ export default {
   async getById(req, res) {
     try {
       const post = await Post.findById(req.params.id)
-        .populate('postBy', 'fullName') //userName
-        .populate('likes', 'fullName'); //lastName
+        .populate('postBy', 'userName') //userName
+        .populate('likes', 'userName'); //lastName
       if (!post) {
         return res.status(404).json({ err: 'could not find post' });
       }

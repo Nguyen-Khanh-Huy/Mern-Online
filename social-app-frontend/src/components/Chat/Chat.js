@@ -14,7 +14,7 @@ class Chat extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="container">
                 <h1 className=" text-center">Messaging</h1>
                 <div className="messaging">
                     <div className="inbox_msg">

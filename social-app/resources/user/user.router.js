@@ -13,7 +13,7 @@ userRouter.get(
 );
 
 
-
+userRouter.post('/friends', userController.getFriends);
 /*
 {
     "email": "khanhhuy@gmail.com",

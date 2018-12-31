@@ -3,6 +3,10 @@ import User from './user.model';
 import jwt from '../../helpers/jwt';
 
 export default {
+  async getFriends(req, res) {
+    const users = await User.find({ _id: { $in: req.body.users } });
+    res.json(users);
+  },
   async signUp(req, res) {
     try {
       const { value, error } = userServices.validateSignUp(req.body);
@@ -17,7 +21,15 @@ export default {
         password: encryptPass,
         socketid: value.socketid,
         role: value.role,
-        friends: value.friends
+        friends: value.friends,
+        numberPhone: value.numberPhone,
+        home: value.home,
+        living: value.living,
+        birthDay: value.birthDay,
+        sex: value.sex,
+        religion: value.religion,
+        educationLevel: value.educationLevel,
+        statuss: value.statuss
       });
       res.json({ success: true });
     } catch (err) {
@@ -29,7 +41,7 @@ export default {
     try {
       const { id } = req.body;
       console.log(id);
-      
+
       const user = await User.findOneAndUpdate({ _id: id }, req.body, {
         new: false
       });
@@ -70,4 +82,4 @@ export default {
   }
 };
 
-//validate
+//    bycriptjs   passport    passport-jwt   jsonwebtoken
